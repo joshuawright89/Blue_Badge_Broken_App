@@ -22,25 +22,6 @@ namespace Pokemon_Repository
         Ghost,
         Dark,
         Fairy,
-        Dragon = 15
-    }
-
-    public enum PokemonSecondaryType
-    {
-        Normal = 1,
-        Grass,
-        Fire,
-        Water,
-        Electric = 5,
-        Ice,
-        Bug,
-        Ground,
-        Rock,
-        Fighting = 10,
-        Psychic,
-        Ghost,
-        Dark,
-        Fairy,
         Dragon = 15,
         None = 16
     }

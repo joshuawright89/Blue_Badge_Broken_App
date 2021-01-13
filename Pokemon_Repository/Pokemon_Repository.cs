@@ -21,25 +21,25 @@ namespace Pokemon_Repository
             return _pokemonTeam;
         }
         //get one pokemon
-        //public Pokemon GetPokemonByTeamPosition(int teamPosition)
-        //{
-        //    Pokemon pokemon = _pokemonTeam[teamPosition - 1];
-        //    return pokemon;
-        //}
+        public Pokemon GetPokemonByTeamPosition(int teamPosition)
+        {
+            Pokemon pokemon = _pokemonTeam[teamPosition - 1];
+            return pokemon;
+        }
 
         //Alternative to ^^above?
         //Helper method (GetByTeamPosition)
-        public Pokemon GetPokemonByPosition(int teamPosition)
-        {
-            foreach (Pokemon pokemon in _pokemonTeam)
-            {
-                if (pokemon.TeamPosition == teamPosition)
-                {
-                    return pokemon;
-                }
-            }
-            return null;
-        }
+        //public Pokemon GetPokemonByPosition(int teamPosition)
+        //{
+        //    foreach (Pokemon pokemon in _pokemonTeam)
+        //    {
+        //       if (pokemon.TeamPosition == teamPosition)
+        //        {
+        //            return pokemon;
+        //        }
+        //    }
+        //    return null;
+        //}
 
 
 
@@ -48,7 +48,7 @@ namespace Pokemon_Repository
         public void UpdatePokemonByTeamPosition(int teamPosition, Pokemon newPokemon)
         {
             //Find
-            Pokemon oldPokemon = GetPokemonByPosition(teamPosition);
+            Pokemon oldPokemon = GetPokemonByTeamPosition(teamPosition);
 
             //Update
             if (oldPokemon != null)
@@ -57,8 +57,8 @@ namespace Pokemon_Repository
                 pokemon.PokemonSpeciesName = newPokemon.PokemonSpeciesName;
                 pokemon.PokemonNickName = newPokemon.PokemonNickName;
                 pokemon.Level = newPokemon.Level;
-                Pokemon.PokemonPrimaryType = newPokemon.PokemonPrimaryType;
-                Pokemon.PokemonSecondaryType = newPokemon.PokemonSecondaryType;
+                pokemon.PokemonPrimaryType = newPokemon.PokemonPrimaryType;
+                pokemon.PokemonSecondaryType = newPokemon.PokemonSecondaryType;
                 pokemon.MoveOne = newPokemon.MoveOne;
                 pokemon.MoveTwo = newPokemon.MoveTwo;
                 pokemon.MoveThree = newPokemon.MoveThree;
@@ -68,11 +68,11 @@ namespace Pokemon_Repository
 
         public void UpdatePokemonByNickName(string nickName, Pokemon newPokemon)
         {
-            foreach(Pokemon pokemon in _pokemonTeam)
+            foreach(Pokemon p in _pokemonTeam)
             {
-                if(nickName == pokemon.PokemonNickName)
+                if(nickName == p.PokemonNickName)
                 {
-                    p = new Pokemon;
+                    p.PokemonNickName = newPokemon.PokemonNickName;
                 }
             }
         }
